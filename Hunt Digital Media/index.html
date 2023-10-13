@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Range Report</title>
+    <style>
+        /* Add your CSS styles here */
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .button {
+            border-radius: 10%;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        .date-picker,
+        .date-picker:focus {
+            width: 100%;
+        }
+        
+        .btn-save {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 12px 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .btn-cancel {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 12px 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        /* Responsive design for small screens (e.g., mobile) */
+        
+        @media screen and (max-width: 600px) {
+            table {
+                max-width: none;
+            }
+            th,
+            td {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Date Range Report</h1>
+    <table>
+        <tr>
+            <th>Action</th>
+            <th>ID</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Dates Excluded</th>
+            <th>Lead Count</th>
+            <th>Expected DRR</th>
+            <th>Last Updated</th>
+        </tr>
+        <tr>
+            <td>
+                <button class="button btn-save" onclick="saveReport()">Save</button>
+                <button class="button btn-cancel" onclick="clearFields()">Cancel</button>
+            </td>
+            <td>1</td>
+            <td><input type="date" class="date-picker" id="start-date"></td>
+            <td><input type="date" class="date-picker" id="end-date"></td>
+            <td id="month">Auto-filled</td>
+            <td id="year">Auto-filled</td>
+            <td><input type="date" class="date-picker" id="excluded-dates"></td>
+            <td><input type="number" id="lead-count"></td>
+            <td id="expected-drr">Auto-calculated</td>
+            <td id="last-updated">Auto-updated</td>
+        </tr>
+    </table>
+
+    <script>
+        // JavaScript for dynamically updating fields
+        const startDateInput = document.getElementById("start-date");
+        const endDateInput = document.getElementById("end-date");
+        const monthField = document.getElementById("month");
+        const yearField = document.getElementById("year");
+        const excludedDatesInput = document.getElementById("excluded-dates");
+        const leadCountInput = document.getElementById("lead-count");
+        const expectedDRRField = document.getElementById("expected-drr");
+        const lastUpdatedField = document.getElementById("last-updated");
+        const tableBody = document.querySelector("table tbody");
+
+        function saveReport() {
+            const startDateValue = startDateInput.value;
+            const endDateValue = endDateInput.value;
+
+            if (!startDateValue || !endDateValue) {
+                alert("Start and end date must not be empty.");
+                return;
+            }
+
+            const startDate = new Date(startDateValue);
+            const endDate = new Date(endDateValue);
+            const excludedDates = excludedDatesInput.value;
+            const leadCount = parseInt(leadCountInput.value);
+
+            if (startDate > endDate) {
+                alert("End date cannot precede the start date.");
+                return;
+            }
+
+            // Calculate and update Month and Year
+            monthField.textContent = `Month: ${startDate.toLocaleString('default', { month: 'long' })}`;
+            yearField.textContent = `Year: ${startDate.getFullYear()}`;
+
+            // Calculate and update Expected DRR
+            const days = (endDate - startDate) / (1000 * 60 * 60 * 24);
+            expectedDRRField.textContent = `Expected DRR: ${(leadCount / days).toFixed(2)}`;
+
+            // Automatically update the Last Updated field
+            const now = new Date();
+            lastUpdatedField.textContent = `Last Updated: ${now.toISOString().slice(0, 19).replace("T", " ")}`;
+
+            // Create a new row for displaying the data
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+            <td>NA</td>
+                <td>2</td>
+                <td>${startDateValue}</td>
+                <td>${endDateValue}</td>
+                <td>${monthField.textContent}</td>
+                <td>${yearField.textContent}</td>
+                <td>${excludedDates}</td>
+                <td>${leadCountInput.value}</td>
+                <td>${expectedDRRField.textContent}</td>
+                <td>${lastUpdatedField.textContent}</td>
+            `;
+
+            // Insert the new row in the table body
+            tableBody.appendChild(newRow);
+
+            // Clear the input fields
+            clearFields();
+        }
+
+        function clearFields() {
+            startDateInput.value = "";
+            endDateInput.value = "";
+            excludedDatesInput.value = "";
+            leadCountInput.value = "";
+        }
+    </script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="script.js"></script>
+
+</html>
