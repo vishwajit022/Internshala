@@ -1,0 +1,347 @@
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .hero {
+        width: 100%;
+        height: 100%;
+        display: flex
+    }
+    
+    .lside {
+        height: 100vh;
+        width: 30vw;
+        background-color: #000066;
+    }
+    
+    .logo {
+        font-size: 5vh;
+        color: #01D167;
+        display: flex;
+        align-items: center;
+    }
+    
+    .lside__content {
+        padding-left: 4vw;
+        padding-top: 4vh;
+    }
+    
+    .below__logo {
+        color: #b3cccc;
+        margin-top: 2vh;
+    }
+    
+    .nav {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        font-size: 2.6vh;
+        gap: 5vh;
+        color: white;
+        padding-top: 15vh;
+    }
+    
+    .logo2 {
+        padding-right: 2vw;
+    }
+    
+    .logo3 {
+        padding-right: 1.4vw;
+    }
+    
+    .nav__items {
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav__items:hover {
+        color: #1aff1a;
+        transition: all ease 0.9s;
+    }
+    
+    .logo__title {
+        font-weight: 900;
+    }
+    
+    .rside__content {
+        padding-left: 7vw;
+        padding-top: 10vh;
+    }
+    
+    .card__logo {
+        display: flex;
+        justify-content: right;
+    }
+    
+    .actual__card {
+        height: 30vh;
+        background-color: #01D167;
+        border-radius: 1vw;
+        color: white;
+    }
+    
+    .lcard__details {
+        width: 50%;
+    }
+    
+    .rcard__details {
+        width: 50%;
+    }
+    
+    .lcard__details__show {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        font-size: 1.1vh;
+        color: #01D167;
+    }
+    
+    .eye {
+        margin-right: 1vw;
+    }
+    
+    .card__details {
+        margin-top: 5vh;
+        margin-right: 5vw;
+        height: 70%;
+        box-shadow: 10px 10px 20px 20px lightblue;
+        padding-left: 1vw;
+        padding-right: 1vw;
+        display: flex;
+    }
+    
+    .amount {
+        display: flex;
+    }
+    
+    .add_card {
+        display: flex;
+        align-items: center;
+        background-color: #0C365A;
+        padding: 1vw 2.1vw;
+        right: 1vw;
+        margin-left: 30vw;
+        border-radius: 1vw;
+    }
+    
+    .btn {
+        cursor: pointer;
+    }
+    
+    .add {
+        color: blue;
+        background-color: white;
+        border-radius: 30%;
+        margin-right: 1vw;
+    }
+    
+    .l {
+        font-size: 2.6vh;
+    }
+    
+    .bal__amount {
+        display: flex;
+        align-items: center;
+        font-size: 2vh;
+    }
+    
+    .bal__currency {
+        padding: 1vh 2vw;
+        background-color: #01D167;
+        border-radius: 1vw;
+        margin-right: 3vw;
+        color: white;
+        font-weight: 800;
+        box-shadow: 5px 5px 5px lightblue;
+    }
+    
+    .cards {
+        display: flex;
+        padding-top: 9vh;
+        gap: 10vw;
+        position: relative;
+    }
+    
+    .db__cards {
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .line {
+        position: absolute;
+        background-color: blue;
+        height: 0.3vw;
+        width: 100%;
+    }
+    
+    .white {
+        color: white;
+        font-weight: 500;
+    }
+    
+    .actual__card__content {
+        padding: 2vh;
+        position: relative;
+    }
+    
+    .card__number {
+        display: flex;
+        align-items: center;
+        font-size: 1vw;
+        padding-top: 2vh;
+    }
+    
+    .card__number__dots span {
+        padding: 0 5px;
+        font-size: larger;
+        /* Adjust the padding to control the space between dots */
+    }
+    
+    .card__owner {
+        padding-top: 2vh;
+        font-weight: 700;
+    }
+    
+    .card__number__dots {
+        font-size: 1vw;
+    }
+    
+    .card__number_lastFour {
+        font-size: 0.8vw;
+    }
+    
+    .card__expiry {
+        font-weight: 400;
+        font-size: 0.8vw;
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 1vh;
+        margin-bottom: -1vh;
+    }
+    
+    .card__cvv {
+        padding-left: 6vh;
+        display: flex;
+    }
+    
+    .star {
+        font-size: 3vh;
+        padding-left: 1vh;
+    }
+    
+    .card__visa {
+        position: absolute;
+        padding-left: 14vw;
+    }
+    
+    .show {
+        font-size: 1.6vh;
+    }
+    
+    .below__card {
+        background-color: #EDF3FF;
+        height: 15vh;
+        margin-top: 3vh;
+        border-radius: 1vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 1vh;
+        padding-left: 3vh;
+        padding-right: 3vh;
+    }
+    
+    .below__card__item {
+        font-size: 1.3vh;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+    }
+    
+    .rcard__details {
+        margin-top: 2vh;
+        padding-left: 3vh;
+        border-radius: 3vh;
+    }
+    
+    .transactions {
+        display: flex;
+        align-items: center;
+        background-color: #EDF3FF;
+        border: 1px solid #a5c3ff;
+        height: 8vh;
+        justify-content: space-between;
+        border-top-left-radius: 2vh;
+        border-top-right-radius: 2vh;
+    }
+    
+    .firstlineTransactions {
+        padding-left: 2vh;
+    }
+    
+    .arrowTilt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .transaction {
+        display: flex;
+        padding-left: 3vh;
+        padding-top: 3vh;
+        font-size: 2vh;
+    }
+    
+    .transaction__amount {
+        color: #01D167;
+    }
+    
+    .ttype {
+        padding-left: 1vh;
+        font-size: 0.01vh;
+    }
+    
+    .transaction__column1 {
+        display: flex;
+        align-items: center;
+        padding-right: 2vh;
+    }
+    
+    .transaction__type {
+        display: flex;
+    }
+    
+    .transaction__column3 {
+        padding-left: 20vh;
+    }
+    
+    .transaction__date {
+        font-size: 1.3vh;
+        font-weight: 200;
+    }
+    
+    .recent__transactions {
+        border: 1px solid #a5c3ff;
+    }
+    
+    @keyframes slideDown {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    .recent__transactions {
+        display: none;
+        animation: slideDown 0.1s ease-out forwards;
+    }
+    
+    .recent__transactions.show {
+        display: block;
+    }
